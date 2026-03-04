@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vidhyakorn Mahd-Adam | Diseases Modeller</title>
+    <title>Vidhyakorn Mahd-Adam</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* ============================================
-           CUSTOMIZATION SECTION - EDIT COLORS & STYLES HERE
+           CUSTOMIZATION - VIBRANT TECH COLOR PALETTE
            ============================================ */
         :root {
-            /* Primary Colors */
-            --color-primary: #2C5F6F;
-            --color-secondary: #D4A574;
-            --color-accent: #8B4513;
-            
-            /* Neutrals */
-            --color-bg: #FFFFFF;           /* Pure white background */
-            --color-surface: #FFFFFF;       /* Card backgrounds */
-            
-            /* Typography */
-            --font-heading: 'Fira Sans', serif;
-            --font-body: 'Work Sans', sans-serif;
-            
-            /* Spacing */
-            --spacing-xs: 0.4rem;
-            --spacing-sm: 0.9rem;
-            --spacing-md: 1.9rem;
-            --spacing-lg: 3.9rem;
-            --spacing-xl: 5.9rem;
+            /* Tech Color Palette - Blue & Orange */
+            --color-primary: #4B5EED;       /* Vibrant blue */
+            --color-accent: #FF5722;        /* Bright orange */
+            --color-bg-dark: #2C3E9E;       /* Deep blue */
+            --color-bg-darker: #1E2875;     /* Darker blue */
+            --color-text: #FFFFFF;          /* White text */
+            --color-text-muted: #B8C5F2;    /* Light blue text */
+            --color-white: #FFFFFF;
         }
 
         /* ============================================
@@ -44,364 +33,312 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background: var(--color-bg);
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-bg-dark) 50%, var(--color-primary) 100%);
             color: var(--color-text);
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
+            font-size: 16px;
+            font-weight: 300;
+            min-height: 100vh;
         }
 
         /* ============================================
-           LAYOUT
+           HEADER WITH BACKGROUND IMAGE
            ============================================ */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        /* Header */
         header {
-            padding: var(--spacing-lg) 0;
-            border-bottom: 2px solid var(--color-border);
+            text-align: center;
+            padding: 100px 20px 60px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(30, 40, 117, 0.9) 0%, rgba(44, 62, 158, 0.85) 50%, rgba(75, 94, 237, 0.8) 100%), url('header-bg.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
-            background: linear-gradient(135deg, var(--color-bg) 0%, #FFFFFF 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .header-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: var(--spacing-lg);
-            align-items: start;
-        }
-
-        .profile-section {
-            position: relative;
-        }
-
-        .profile-image-wrapper {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid var(--color-primary);
-            box-shadow: 0 8px 32px rgba(44, 95, 111, 0.2);
-            position: relative;
-            background: var(--color-surface);
-        }
-
-        .profile-image-wrapper::before {
+        
+        header::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            opacity: 0.1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(75, 94, 237, 0.2) 0%, rgba(30, 40, 117, 0.5) 100%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .profile-image {
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 87, 34, 0.4);
+        }
+
+        .profile-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
         .profile-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-weight: 300;
-            color: var(--color-primary);
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e4dc 100%);
-        }
-
-        .intro-section {
-            padding-top: var(--spacing-sm);
+            color: var(--color-white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
-            font-family: var(--font-heading);
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-xs);
-            line-height: 1.2;
+            color: var(--color-white);
+            margin-bottom: 8px;
             letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .tagline {
-            font-size: 1.3rem;
-            color: var(--color-secondary);
-            font-weight: 500;
-            margin-bottom: var(--spacing-md);
-            font-family: var(--font-heading);
-            font-style: italic;
-        }
-
-        .bio {
             font-size: 1.1rem;
-            color: var(--color-text-light);
-            line-height: 1.8;
-            margin-bottom: var(--spacing-md);
-            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
         }
 
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-link {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        /* ============================================
+           MAIN CONTENT
+           ============================================ */
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 30px;
+            letter-spacing: -0.01em;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--color-accent);
+            margin-top: 10px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--color-white);
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+        }
+
+        /* ============================================
+           ABOUT
+           ============================================ */
         .meta-info {
             display: flex;
-            gap: var(--spacing-md);
-            flex-wrap: wrap;
-            margin-top: var(--spacing-md);
+            gap: 30px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .meta-item {
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--color-text-light);
-            font-size: 0.95rem;
+            gap: 8px;
         }
 
-        .meta-item svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--color-primary);
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
-        }
-
-        .social-link {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-surface);
-            border: 2px solid var(--color-border);
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--color-primary);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(44, 95, 111, 0.2);
-        }
-
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--color-surface);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
-            padding: var(--spacing-sm) 0;
-        }
-
-        .nav-link {
-            color: var(--color-text-light);
-            text-decoration: none;
-            font-weight: 500;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--color-primary);
-            background: rgba(44, 95, 111, 0.05);
-        }
-
-        .nav-link.active {
-            color: var(--color-primary);
+        .meta-item::before {
+            content: '→';
+            color: var(--color-accent);
             font-weight: 600;
         }
 
-        /* Main Content */
-        main {
-            padding: var(--spacing-lg) 0;
-        }
-
-        section {
-            margin-bottom: var(--spacing-xl);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        section:nth-child(1) { animation-delay: 0.1s; }
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-md);
-            font-weight: 600;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--color-secondary);
-        }
-
-        h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-xs);
-            font-weight: 600;
-        }
-
-        /* Research/Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .project-card {
-            background: var(--color-surface);
-            border: 2px solid var(--color-border);
+        /* ============================================
+           PROJECTS
+           ============================================ */
+        .project-item {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            padding: var(--spacing-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--color-accent);
+            transition: all 0.3s;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
+        .project-item:hover {
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-            border-color: var(--color-primary);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
 
-        .project-card:hover::before {
-            transform: scaleX(1);
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
         }
 
         .project-meta {
             font-size: 0.85rem;
-            color: var(--color-text-light);
-            margin-bottom: var(--spacing-xs);
+            color: var(--color-accent);
             font-weight: 500;
-        }
-
-        .project-description {
-            color: var(--color-text-light);
-            line-height: 1.7;
-            margin-bottom: var(--spacing-sm);
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--spacing-xs);
-            margin-top: var(--spacing-sm);
+            gap: 10px;
+            margin: 15px 0;
         }
 
         .tag {
-            background: rgba(44, 95, 111, 0.1);
-            color: var(--color-primary);
-            padding: 4px 12px;
+            font-size: 0.8rem;
+            color: var(--color-white);
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 400;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--color-primary);
+            color: var(--color-accent);
             text-decoration: none;
-            font-weight: 600;
-            margin-top: var(--spacing-sm);
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            display: inline-block;
         }
 
         .project-link:hover {
-            gap: 12px;
+            transform: translateX(5px);
         }
 
-        .project-link svg {
-            width: 16px;
-            height: 16px;
+        .project-link::after {
+            content: ' →';
         }
 
-        /* Skills Section */
+        /* ============================================
+           SKILLS
+           ============================================ */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
         .skill-category {
-            background: var(--color-surface);
-            border: 2px solid var(--color-border);
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--color-accent);
         }
 
         .skill-category h4 {
-            font-family: var(--font-heading);
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 15px;
         }
 
         .skill-list {
@@ -409,333 +346,302 @@
         }
 
         .skill-list li {
-            padding: var(--spacing-xs) 0;
-            color: var(--color-text-light);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+            font-weight: 300;
+            padding-left: 15px;
+            position: relative;
         }
 
         .skill-list li::before {
-            content: '▪';
-            color: var(--color-secondary);
-            font-size: 1.2rem;
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 600;
         }
 
-        /* Publications */
+        /* ============================================
+           PUBLICATIONS
+           ============================================ */
         .publication-item {
-            background: var(--color-surface);
-            border-left: 4px solid var(--color-secondary);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .publication-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .publication-item:last-child {
+            margin-bottom: 0;
         }
 
         .publication-title {
-            font-weight: 600;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .publication-authors {
-            color: var(--color-text-light);
-            font-size: 0.95rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .publication-venue {
-            color: var(--color-primary);
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .contact-card {
-            background: var(--color-surface);
-            border: 2px solid var(--color-border);
-            border-radius: 12px;
-            padding: var(--spacing-md);
-            display: flex;
-            align-items: start;
-            gap: var(--spacing-sm);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            border-color: var(--color-primary);
-            transform: translateY(-2px);
-        }
-
-        .contact-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: rgba(44, 95, 111, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .contact-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--color-primary);
-        }
-
-        .contact-info h4 {
-            color: var(--color-text);
-            margin-bottom: 4px;
+            font-weight: 500;
+            color: var(--color-white);
+            margin-bottom: 8px;
             font-size: 1rem;
         }
 
-        .contact-info a {
-            color: var(--color-primary);
+        .publication-authors {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .publication-venue {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* ============================================
+           CONTACT
+           ============================================ */
+        .contact-list {
+            list-style: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-list li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            color: var(--color-text-muted);
+            display: inline-block;
+            width: 80px;
+        }
+
+        .contact-list a {
+            color: var(--color-white);
             text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .contact-list a:hover {
+            color: var(--color-accent);
         }
 
-        /* Footer */
+        /* ============================================
+           CTA BUTTON
+           ============================================ */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #FF7043;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
         footer {
-            background: var(--color-primary);
-            color: white;
-            padding: var(--spacing-lg) 0;
             text-align: center;
-            margin-top: var(--spacing-xl);
+            padding: 40px 20px;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
+        /* ============================================
+           DECORATIVE ELEMENTS
+           ============================================ */
+        .wave-decoration {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, rgba(30, 40, 117, 0.5) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        footer p {
-            opacity: 0.9;
-            line-height: 1.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .profile-image-wrapper {
-                margin: 0 auto;
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 640px) {
+            header {
+                padding: 60px 20px 40px;
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .projects-grid {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .nav-container {
-                flex-wrap: wrap;
-                gap: var(--spacing-sm);
+            .project-header {
+                flex-direction: column;
+                align-items: start;
             }
-        }
 
-        /* Decorative Elements */
-        .decorative-line {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--color-border), transparent);
-            margin: var(--spacing-lg) 0;
+            .project-item {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Decorative wave -->
+    <div class="wave-decoration"></div>
+
     <!-- ============================================
-         HEADER SECTION
+         HEADER - EDIT YOUR INFO HERE
          ============================================ -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-section">
-                    <div class="profile-image-wrapper">
-                        <!-- Replace with your photo URL or keep the placeholder -->
-                        <div class="profile-placeholder">VM</div>
-                        <!-- Uncomment and add your image URL:
-                        <img src="your-photo-url.jpg" alt="Your Name" class="profile-image">
-                        -->
-                    </div>
-                </div>
-                
-                <div class="intro-section">
-                    <!-- EDIT YOUR INFORMATION HERE -->
-                    <h1>Vidhyakorn Mahd-Adam</h1>
-                    <p class="tagline">Diseases Modeller</p>
-                    <p class="bio">
-                        
-                    </p>
-                    
-                    <div class="meta-info">
-                        <div class="meta-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                            <span>MORU</span>
-                        </div>
-                        <div class="meta-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            <span>Bangkok, Thailand</span>
-                        </div>
-                    </div>
+        <div class="header-content">
+            <div class="profile-photo">
+                <!-- Replace with your photo -->
+                <div class="profile-placeholder">VM</div>
+                <!-- Uncomment to add your photo:
+                <img src="your-photo.jpg" alt="Vidhyakorn Mahd-Adam">
+                -->
+            </div>
 
-                    <!-- EDIT YOUR SOCIAL LINKS HERE -->
-                    <div class="social-links">
-                        <a href="https://github.com/mvidhyagorn" class="social-link" target="_blank" title="GitHub">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                        <!-- Add more social links as needed -->
-                        <a href="mailto:mvidhyagorn@gmail.com" class="social-link" title="Email">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </a>
-                        <a href="https://linkedin.com/in/mvidhyagorn" class="social-link" target="_blank" title="LinkedIn">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+            <h1>Vidhyakorn Mahd-Adam</h1>
+            <p class="tagline">Infectious Diseases Modeller</p>
+
+            <!-- EDIT YOUR SOCIAL LINKS -->
+            <div class="social-links">
+                <a href="https://github.com/mvidhyagorn" target="_blank">GitHub</a>
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
             </div>
         </div>
     </header>
 
-    <!-- ============================================
-         NAVIGATION
-         ============================================ -->
+    <!-- NAVIGATION -->
     <nav>
-        <div class="nav-container">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#research" class="nav-link">Research</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#publications" class="nav-link">Publications</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#skills">Skills</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <!-- ============================================
          MAIN CONTENT
          ============================================ -->
-    <main class="container">
-        <!-- About Section -->
+    <main>
+        <!-- ABOUT -->
         <section id="about">
-            <h2>About Me</h2>
-            <p style="max-width: 800px; font-size: 1.05rem; line-height: 1.8; color: var(--color-text-light); margin-top: var(--spacing-md);">
-                <!-- EDIT YOUR ABOUT TEXT HERE -->
-                I am a researcher at the Mahidol Oxford Tropical Medicine Research Unit (MORU) in Bangkok, 
-                Thailand. My work focuses on developing and applying mathematical models to understand the dynamics of 
-                infectious diseases, particularly in resource-limited settings. I combine epidemiological theory, 
-                statistical methods, and computational techniques to provide insights that can inform public health policy 
-                and intervention strategies.
+            <h2>About</h2>
+            <p>
+                <!-- EDIT YOUR ABOUT TEXT -->
+                I am a computational researcher at the Mahidol Oxford Tropical Medicine Research Unit (MORU) 
+                in Bangkok, Thailand. My work focuses on developing and applying mathematical models to 
+                understand the dynamics of infectious diseases, particularly in resource-limited settings.
             </p>
-        </section>
+            <p>
+                I combine epidemiological theory, statistical methods, and computational techniques to provide 
+                insights that can inform public health policy and intervention strategies.
+            </p>
 
-        <div class="decorative-line"></div>
-
-        <!-- Research/Projects Section -->
-        <section id="research">
-            <h2>Research & Projects</h2>
-            <div class="projects-grid">
-                <!-- PROJECT 1 - EDIT OR DUPLICATE THIS BLOCK -->
-                <div class="project-card">
-                    <div class="project-meta">GitHub Repository</div>
-                    <h3>CBC Model</h3>
-                    <p class="project-description">
-                        Data and software for CBC (Community-Based Care) model projects, focusing on epidemiological 
-                        modeling and analysis of disease transmission patterns.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">R</span>
-                        <span class="tag">Epidemiology</span>
-                        <span class="tag">Data Analysis</span>
-                    </div>
-                    <a href="https://github.com/mvidhyagorn/CBC_Model" class="project-link" target="_blank">
-                        View Project
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- PROJECT 2 - ADD YOUR OWN PROJECTS -->
-                <div class="project-card">
-                    <div class="project-meta">Research Project</div>
-                    <h3>Your Project Title</h3>
-                    <p class="project-description">
-                        Add description of your research project here. This could be about disease modeling, 
-                        data analysis, or any other relevant work.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Public Health</span>
-                    </div>
-                    <a href="#" class="project-link">
-                        View Project
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- PROJECT 3 -->
-                <div class="project-card">
-                    <div class="project-meta">Collaboration</div>
-                    <h3>Another Project</h3>
-                    <p class="project-description">
-                        Describe another project, collaboration, or research initiative here.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Statistics</span>
-                        <span class="tag">Modeling</span>
-                    </div>
-                    <a href="#" class="project-link">
-                        View Project
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </a>
-                </div>
+            <div class="meta-info">
+                <div class="meta-item">MORU, Bangkok</div>
+                <div class="meta-item">Bangkok, Thailand</div>
             </div>
         </section>
 
-        <div class="decorative-line"></div>
+        <!-- RESEARCH -->
+        <section id="research">
+            <h2>Research & Projects</h2>
 
-        <!-- Skills Section -->
+            <!-- PROJECT 1 - EDIT OR COPY THIS BLOCK -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>CBC Model</h3>
+                    <span class="project-meta">2024</span>
+                </div>
+                <p>
+                    Data and software for CBC (Community-Based Care) model projects, focusing on 
+                    epidemiological modeling and analysis of disease transmission patterns.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">R</span>
+                    <span class="tag">Epidemiology</span>
+                    <span class="tag">Modeling</span>
+                </div>
+                <a href="https://github.com/mvidhyagorn/CBC_Model" class="project-link" target="_blank">View Project</a>
+            </div>
+
+            <!-- PROJECT 2 - ADD YOUR PROJECTS -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Your Research Project</h3>
+                    <span class="project-meta">2024</span>
+                </div>
+                <p>
+                    Add description of your research project here. Describe the objectives, methods, 
+                    and key findings or outcomes.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Statistics</span>
+                </div>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
         <section id="skills">
             <h2>Skills & Expertise</h2>
             <div class="skills-grid">
-                <!-- EDIT YOUR SKILLS HERE -->
+                <!-- EDIT YOUR SKILLS -->
                 <div class="skill-category">
-                    <h4>Programming & Tools</h4>
+                    <h4>Programming</h4>
                     <ul class="skill-list">
                         <li>R & RStudio</li>
                         <li>Python</li>
                         <li>MATLAB</li>
                         <li>Git & GitHub</li>
-                        <li>LaTeX</li>
+                        <li>SQL</li>
                     </ul>
                 </div>
 
@@ -763,14 +669,12 @@
             </div>
         </section>
 
-        <div class="decorative-line"></div>
-
-        <!-- Publications Section -->
+        <!-- PUBLICATIONS -->
         <section id="publications">
             <h2>Publications</h2>
-            <!-- ADD YOUR PUBLICATIONS HERE -->
+            <!-- ADD YOUR PUBLICATIONS -->
             <div class="publication-item">
-                <div class="publication-title">Title of Your Publication</div>
+                <div class="publication-title">Title of Your Publication or Research Paper</div>
                 <div class="publication-authors">Author1, Author2, <strong>V. Mahd-Adam</strong>, Author4</div>
                 <div class="publication-venue">Journal Name, Volume(Issue), Pages, Year</div>
             </div>
@@ -780,101 +684,44 @@
                 <div class="publication-authors"><strong>V. Mahd-Adam</strong>, Co-author1, Co-author2</div>
                 <div class="publication-venue">Conference Name or Journal, Year</div>
             </div>
-
-            <!-- Add more publications as needed -->
         </section>
 
-        <div class="decorative-line"></div>
-
-        <!-- Contact Section -->
+        <!-- CONTACT -->
         <section id="contact">
-            <h2>Get In Touch</h2>
-            <div class="contact-grid">
-                <!-- EDIT YOUR CONTACT INFORMATION HERE -->
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Email</h4>
-                        <a href="mailto:mvidhyagorn@gmail.com">your.email@moru.org</a>
-                    </div>
-                </div>
+            <h2>Contact</h2>
+            <!-- EDIT YOUR CONTACT INFO -->
+            <ul class="contact-list">
+                <li>
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:your.email@moru.org">your.email@moru.org</a>
+                </li>
+                <li>
+                    <span class="contact-label">GitHub</span>
+                    <a href="https://github.com/mvidhyagorn" target="_blank">@mvidhyagorn</a>
+                </li>
+                <li>
+                    <span class="contact-label">LinkedIn</span>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">Your Profile</a>
+                </li>
+            </ul>
 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <svg fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>GitHub</h4>
-                        <a href="https://github.com/mvidhyagorn" target="_blank">@mvidhyagorn</a>
-                    </div>
-                </div>
-
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Organization</h4>
-                        <a href="https://www.tropmedres.ac" target="_blank">MORU</a>
-                    </div>
-                </div>
-            </div>
+            <a href="mailto:your.email@moru.org" class="cta-button">Get in Touch</a>
         </section>
     </main>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 Vidhyakorn Mahd-Adam. All rights reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">
-                Built with passion for science and public health.
-            </p>
-        </div>
+        <p>&copy; 2026 Vidhyakorn Mahd-Adam • Accelerating Discovery in Infectious Diseases</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Active nav link on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
